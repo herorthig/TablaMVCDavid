@@ -1,5 +1,9 @@
 package jcolonia.daw2025.tablasmvc;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,40 +25,55 @@ public class TablaMultiplicar {
 	private List<String> listaTextos;
 	
 	/**
-	 * Inicialización de variable sy creación de objetos.
-	 * @param número
+	 * Inicialización de variable su creación de objetos.
+	 * @param número de la tabla de multiplcar.
 	 */
 	public TablaMultiplicar(int número) {
-		
+		this.número = número;
+		listaTextos = new ArrayList<String>();
 	}
 	
 	/**
 	 * Genera la tabla de multiplicar.
 	 */
 	public void generarTabla() {
+		String[] auxiliar;
 		
+		auxiliar = new String[10];
+		
+		for (int i=0;i<10;i++) {
+			auxiliar[i] = String.format("%d × %d = %d%n", i+1, número, número*(i+1));
+			listaTextos.add(auxiliar[i]);
+		}
 	}
 	
 	/**
 	 * Facilita la lista con la tabla de multiplciar a la clase {@link ExportacionArchivo}.
-	 * @return null.
+	 * @return listaTextos con la tabla generada.
 	 */
 	public List<String> toListaExportacion() {
-		return null;
+		return listaTextos;
 	}
 	
 	/**
 	 * Envia la lista con la tabla de multiplicar a pantalla.
-	 * @return null.
+	 * @return listaTextos con la tabla generada.
 	 */
 	public List<String> toListaPantalla() {
-		return null;
+		return listaTextos;
 	}
 	
 	/**
 	 * guarda la tabla de multiplicar en una cadena de texto.
+	 * @return descripcion con la tabla de multiplicar.
 	 */
 	public String toString() {
-		return null;
+		String descripcion;
+		
+		descripcion = "";
+		for(int i=0;i<listaTextos.size();i++) {
+			descripcion += String.format(listaTextos.get(i));
+		}
+		return descripcion;
 	}
 }

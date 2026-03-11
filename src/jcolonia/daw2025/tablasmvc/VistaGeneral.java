@@ -1,0 +1,129 @@
+package jcolonia.daw2025.tablasmvc;
+
+import java.util.List;
+import java.util.Scanner;
+
+/**
+ * Vista general del programa.
+ * Aplicación de texto usando tablas de multiplicar infantiles clásicas.
+ * 
+ * @author <a href="hernanj.higort@educa.jcyl.es">Hernán José Higuero Ortega</a>
+ * @version 1.0 (20260310)
+ */
+public class VistaGeneral {
+	/**
+	 * Formato de salida para texto normal. Incorpora un salto de linea final.
+	 */
+	public static final String FORMATO_PRINTF_MOSTRARTEXTO = "%s%n";
+	
+	/**
+	 * Formato de salida para aviso. Va entre asteriscos «***».
+	 * También incorpora un salto de linea final.
+	 */
+	public static final String FORMATO_PRINTF_MOSTRARAVISO= "*** %s ***%n";
+	
+	/**
+	 * 
+	 */
+	private static Scanner ScEntrada;
+	
+	/**
+	 * Muestra -envia a la salida estándar- un texto añadiendo un salto de linea final.
+	 * 
+	 * @see #FORMATO_PRINTF_MOSTRARTEXTO
+	 * 
+	 * @param texto a mostrar.
+	 */
+	public static void mostrarTexto(String texto) {
+		System.out.printf(FORMATO_PRINTF_MOSTRARTEXTO, texto);
+	}
+	
+	/**
+	 * Muestra -envia a la salida estándar- un texto de aviso entre asteriscos.
+	 * «***» y con dos saltos de linea finales.
+	 * 
+	 * @see #FORMATO_PRINTF_MOSTRARAVISO
+	 * 
+	 * @param texto a mostrar.
+	 */
+	public static void mostrarAviso(String texto) {
+		System.out.printf(FORMATO_PRINTF_MOSTRARAVISO, texto);
+	}
+	
+	/**
+	 * Muestra -envia a la salida estándar- un titulo H1 añadiendo un salto de linea final.
+	 *  
+	 * @param texto a mostrar.
+	 */
+	public static void mostrarTitulo1(String texto) {
+		
+	}
+	
+	/**
+	 * Muestra -envia a la salida estándar- un título H2 añadiendo un salto de linea final.
+	 * 
+	 * @param texto a mostrar.
+	 */
+	public static void mostrarTitulo2(String texto) {
+		
+	}
+	
+	/**
+	 * Pide un numero al usuario por pantalla.
+	 * 
+	 * @param texto con el número que necesita recibir.
+	 * @return número que ha recibido.
+	 */
+	public static int pedirNumero(String texto) {
+		int n;
+		Scanner ScIn;
+		
+		ScIn = getScEntrada();
+		
+		System.out.printf("%s: ", texto);
+		
+		return 0;
+	}
+	
+	/**
+	 * Espera a que el usuario de una confirmación para seguir con el programa.
+	 * 
+	 * @param texto con la entrada que necesita recibir.
+	 */
+	public static void pausa(String texto) {
+		
+	}
+	
+	/**
+	 * Muestra -envia a la salida estándar- un texto para perdir confimación al usuario
+	 * añadiendo un salto de linea al final.
+	 * 
+	 * @param texto con la entrada espera a recibir.
+	 * @return resultado para continuar o no.
+	 */
+	public static boolean pedirConfirmacion(String texto) {
+		return false;
+	}
+	
+	/**
+	 * Muestra -envia a la salida estándar- la lista de opciones del programa con
+	 * una linea por cada opción.
+	 * 
+	 * @param lista de opciones.
+	 */
+	public static void mostrarLista(List<String> lista) {
+		
+	}
+	
+	/**
+	 * Pide una entrada al usuario para cada acción que desee tomar.
+	 * 
+	 * @return enrada del scanner.
+	 */
+	public static Scanner getScEntrada() {
+		if (ScEntrada == null) {
+			ScEntrada = new Scanner(System.in);
+		}
+		return null;
+	}
+}

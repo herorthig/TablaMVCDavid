@@ -1,5 +1,6 @@
 package jcolonia.daw2025.tablasmvc;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,33 +29,65 @@ public class VistaMenú extends VistaGeneral {
 	 * @param opciones de la lista
 	 */
 	public VistaMenú(String título, List<String> opciones) {
-		
+		super();
+		this.título = título;
+		this.opciones = new ArrayList<String>(opciones);
 	}
 	
 	/**
 	 * Muestra el titulo del menú.
 	 */
 	public void mostrarTítulo() {
+		System.out.println(título);
 		
+		for(int i=0;i<título.length();i++) {
+			System.out.print("=");
+		}
+		
+		System.out.println();
 	}
 	
 	/**
 	 * Muestra las opciones del menú, una tras otra en orden.
 	 */
 	public void mostrarOpciones() {
-		
+		for(int i=0;i<opciones.size();i++) {
+			System.out.printf("     %d) %s%n", i+1, opciones.get(i));
+		}
+		System.out.println("     0) salir");
 	}
 	
 	/**
 	 * Pide un numeor al usuario.
 	 * 
-	 * @return opción elegida por el usuario.
+	 * @return entradaNumero como la opción elegida por el usuario.
 	 */
 	public int pedirOpción() {
-		int opción;
+		String entradaTexto;
+		int entradaNumero, mín, máx;
+		boolean salir;
 		
-		opción = 0;
+		entradaTexto="";
+		entradaNumero = mín = 0;
+		máx = 0;
+		salir = false;
 		
-		return opción;
+		do {
+			try {
+				System.out.print("Elija una opción: ");
+				entradaTexto = super.getScEntrada();
+				entradaNumero = Integer.parseInt(entradaTexto);
+				
+				if(entradaNumero < mín || entradaNumero > máx) {
+					System.out.printf("*** Por favor, ¡escriba un número entre %d y %d!***%n", mín, máx);
+				} else {
+					salir = true;
+				}
+			} catch (NumberFormatException e) {
+				System.out.printf("*** Por favor, ¡escriba un número entre %d y %d!***%n", mín, máx);
+			}
+		} while (!salir);
+		
+		return entradaNumero;
 	}
 }

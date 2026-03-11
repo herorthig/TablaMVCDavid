@@ -1,14 +1,23 @@
 package jcolonia.daw2025.tablasmvc;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
-* Núcleo de aplicación de consola de texto con menús. Aplicación
-* de texto usando tablas de multiplicar infantiles clásicas. 
+ * Núcleo de aplicación de consola de texto con menús. Aplicación
+ * de texto usando tablas de multiplicar infantiles clásicas. 
+ * 
+ *  
+ * @author <a href= "mailto:dmartin.jcolonia@gmail.com">David H. Martín</a>
+ * @version 1.1 (20260311)
 */
 public class ControlTablaMultiplicar {
 	/** Formato tipo «printf» para el nombre del archivo de
 	* exportación.
 	*/
-	public static final String FORMATO_RUTA_ARCHIVO_EXPORTACIÓN=
-		"tabla del %02d.txt";
+	public static final String FORMATO_RUTA_ARCHIVO_EXPORTACIÓN = "tabla del %02d.txt";
+	
+	public static final List<String> OPCIONES_MENÚ_PRINCIPAL = new ArrayList();
 	
 	/** Tabla de multiplicar activa. */
 	private TablaMultiplicar tabla;
@@ -76,7 +85,9 @@ public class ControlTablaMultiplicar {
 	private void cambiarTabla(){
 		int n;
 		
-		VistaGeneral.pedirNúmero("Introduzca el número para la tabla");
+		n = 0;
+		
+		VistaGeneral.pedirNumero("Introduzca el número para la tabla");
 		
 		tabla=new TablaMultiplicar(n);
 		tabla.generarTabla();
@@ -86,15 +97,13 @@ public class ControlTablaMultiplicar {
 	* Envía a un archivo
 	* los productos correspondientes a la tabla activa.
 	*/
-	private void exportarTabla(){}
+	private void exportarTabla(){
+		
+	}
 	
 	/**
 	 * Muestra un mensaje de aviso indicando que 
 	 * la opción elegida no está disponible.
 	*/
 	private void opciónNoDisponible(){}
-
-
-
-
 }

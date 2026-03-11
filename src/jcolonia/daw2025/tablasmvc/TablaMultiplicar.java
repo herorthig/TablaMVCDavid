@@ -1,8 +1,5 @@
 package jcolonia.daw2025.tablasmvc;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +8,7 @@ import java.util.List;
  * Aplicación de texto usando tablas de multiplicar infantiles clásicas.
  * 
  * @author <a href="hernanj.higort@educa.jcyl.es">Hernán José Higuero Ortega</a>
- * @version 1.0 (20260309)
+ * @version 1.2 (20260309)
  */
 public class TablaMultiplicar {
 	/**

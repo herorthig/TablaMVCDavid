@@ -8,12 +8,10 @@ import java.util.Scanner;
  * Aplicación de texto usando tablas de multiplicar infantiles clásicas.
  * 
  * @author <a href="hernanj.higort@educa.jcyl.es">Hernán José Higuero Ortega</a>
- * @version 1.0 (20260310)
+ * @version 1.2 (20260312)
  */
 public class VistaGeneral {
-	/**
-	 * Formato de salida para texto normal. Incorpora un salto de linea final.
-	 */
+	/** Formato de salida para texto normal. Incorpora un salto de linea final. */
 	public static final String FORMATO_PRINTF_MOSTRARTEXTO = "%s%n";
 	
 	/**
@@ -22,9 +20,7 @@ public class VistaGeneral {
 	 */
 	public static final String FORMATO_PRINTF_MOSTRARAVISO= "*** %s ***%n";
 	
-	/**
-	 * 
-	 */
+	/** clase de entrada por pantalla. */
 	private static Scanner ScEntrada;
 	
 	/**
@@ -52,20 +48,32 @@ public class VistaGeneral {
 	
 	/**
 	 * Muestra -envia a la salida estándar- un titulo H1 añadiendo un salto de linea final.
+	 * Para cada la longitud del titulo H1 se muestra un subrayado simple.
+	 * 
+	 * @see #FORMATO_PRINTF_MOSTRARTEXTO
 	 *  
 	 * @param texto a mostrar.
 	 */
 	public static void mostrarTitulo1(String texto) {
-		
+		System.out.printf(FORMATO_PRINTF_MOSTRARTEXTO, texto);
+		for(int i=0;i<texto.length();i++) {
+			System.out.print("-");
+		}
 	}
 	
 	/**
 	 * Muestra -envia a la salida estándar- un título H2 añadiendo un salto de linea final.
+	 * Para cada la longitud del titulo se muestra un subrayado simple.
+	 * 
+	 * @see #FORMATO_PRINTF_MOSTRARTEXTO
 	 * 
 	 * @param texto a mostrar.
 	 */
 	public static void mostrarTitulo2(String texto) {
-		
+		System.out.printf(FORMATO_PRINTF_MOSTRARTEXTO, texto);
+		for(int i=0;i<texto.length();i++) {
+			System.out.print("-");
+		}
 	}
 	
 	/**
@@ -76,13 +84,15 @@ public class VistaGeneral {
 	 */
 	public static int pedirNumero(String texto) {
 		int n;
-		Scanner ScIn;
+		String entrada;
 		
-		ScIn = getScEntrada();
+		entrada = getScEntrada();
+		n = Integer.parseInt(entrada);
 		
-		System.out.printf("%s: ", texto);
+		System.out.printf(FORMATO_PRINTF_MOSTRARTEXTO, texto);
+		entrada.close();
 		
-		return 0;
+		return n;
 	}
 	
 	/**
@@ -91,7 +101,12 @@ public class VistaGeneral {
 	 * @param texto con la entrada que necesita recibir.
 	 */
 	public static void pausa(String texto) {
+		int n;
+		String entrada;
 		
+		entrada = getScEntrada();
+		
+		System.out.printf(FORMATO_PRINTF_MOSTRARTEXTO, texto);
 	}
 	
 	/**
@@ -120,7 +135,7 @@ public class VistaGeneral {
 	 * 
 	 * @return enrada del scanner.
 	 */
-	public static Scanner getScEntrada() {
+	public static String getScEntrada() {
 		if (ScEntrada == null) {
 			ScEntrada = new Scanner(System.in);
 		}

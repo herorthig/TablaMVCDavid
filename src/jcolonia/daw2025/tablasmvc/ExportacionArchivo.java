@@ -1,6 +1,10 @@
 package jcolonia.daw2025.tablasmvc;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 /**
@@ -8,7 +12,7 @@ import java.util.List;
  * Aplicación de texto usando tablas de multiplicar infantiles clásicas.
  * 
  * @author <a href="hernanj.higort@educa.jcyl.es">Hernán José Higuero Ortega</a>
- * @version 1.0 (20260310)
+ * @version 1.1 (20260311)
  */
 public class ExportacionArchivo {
 
@@ -18,11 +22,11 @@ public class ExportacionArchivo {
 	private Path refArchivos;
 	
 	/**
-	 * Exporta la tabla de multiplicar a un archivo de texto.
-	 * @param rutaArchivo
+	 * Inicializa el atributo donde se guarda el archivo.
+	 * @param rutaArchivo la ruta del archivo
 	 */
 	public ExportacionArchivo(String rutaArchivo) {
-		
+		refArchivos = Paths.get(rutaArchivo);
 	}
 	
 	/**

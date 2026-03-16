@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Vista del menú del programa.
+ * Vista del menú flexible. del programa.
  * Aplicación de texto usando tablas de multiplicar infantiles clásicas.
  * 
  * @author <a href="hernanj.higort@educa.jcyl.es">Hernán José Higuero Ortega</a>
- * @version 1.1 (20260311)
+ * @version 1.2 (20260311)
  */
 public class VistaMenú extends VistaGeneral {
 	

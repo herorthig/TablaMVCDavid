@@ -8,7 +8,7 @@ import java.util.Scanner;
  * Aplicación de texto usando tablas de multiplicar infantiles clásicas.
  * 
  * @author <a href="hernanj.higort@educa.jcyl.es">Hernán José Higuero Ortega</a>
- * @version 1.2 (20260312)
+ * @version 1.3 (20260316)
  */
 public class VistaGeneral {
 	/** Formato de salida para texto normal. Incorpora un salto de linea final. */
@@ -86,11 +86,10 @@ public class VistaGeneral {
 		int n;
 		String entrada;
 		
+		mostrarTexto(texto);
+		
 		entrada = getScEntrada();
 		n = Integer.parseInt(entrada);
-		
-		System.out.printf(FORMATO_PRINTF_MOSTRARTEXTO, texto);
-		entrada.close();
 		
 		return n;
 	}
@@ -101,12 +100,11 @@ public class VistaGeneral {
 	 * @param texto con la entrada que necesita recibir.
 	 */
 	public static void pausa(String texto) {
-		int n;
 		String entrada;
 		
-		entrada = getScEntrada();
+		mostrarTexto(texto);
 		
-		System.out.printf(FORMATO_PRINTF_MOSTRARTEXTO, texto);
+		entrada = getScEntrada();
 	}
 	
 	/**
@@ -117,7 +115,26 @@ public class VistaGeneral {
 	 * @return resultado para continuar o no.
 	 */
 	public static boolean pedirConfirmacion(String texto) {
-		return false;
+		boolean salida;
+		String entrada;
+		
+		salida = false;
+		entrada = "";
+		
+		mostrarTexto(texto);
+		entrada = getScEntrada();
+		
+		switch(entrada.toUpperCase()){
+		case "S": //salir
+			salida = true;
+			break;
+		case "N": //no salir
+			salida = false;
+			break;
+		default:
+			mostrarAviso("Por favor escoja una de las 2 opciones proporcionadas");
+		}
+		return salida;
 	}
 	
 	/**
@@ -127,7 +144,9 @@ public class VistaGeneral {
 	 * @param lista de opciones.
 	 */
 	public static void mostrarLista(List<String> lista) {
-		
+		for (String opcion : lista) {
+            mostrarTexto(opcion);
+        }
 	}
 	
 	/**
@@ -136,9 +155,16 @@ public class VistaGeneral {
 	 * @return enrada del scanner.
 	 */
 	public static String getScEntrada() {
+		String entrada;
+		
 		if (ScEntrada == null) {
 			ScEntrada = new Scanner(System.in);
 		}
-		return null;
+		
+		entrada = ScEntrada.nextLine();
+		
+		ScEntrada.close();
+		
+		return entrada;
 	}
 }

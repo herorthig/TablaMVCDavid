@@ -69,7 +69,7 @@ public class VistaMenú extends VistaGeneral {
 		
 		entradaTexto="";
 		entradaNumero = mín = 0;
-		máx = 0;
+		máx = opciones.size();
 		salir = false;
 		
 		do {

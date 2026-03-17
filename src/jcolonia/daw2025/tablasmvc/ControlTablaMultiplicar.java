@@ -18,7 +18,7 @@ public class ControlTablaMultiplicar {
 
 	/** Opciones que recibe {@link VistaMenú} para las tablas de multiplicar. */
 	public static final String[] OPCIONES_MENÚ_PRINCIPAL=
-		{"Mostrar","Exportar la tabla","Cambiar la tabla"};
+		{"Mostrar","Cambiar la tabla","Exportar la tabla"};
 	//public static final List<String> OPCIONES_MENÚ_PRINCIPAL= List.of("Op1","Op2","Op3","Op4","Op4");
 	
 	/** Tabla de multiplicar activa. */
@@ -46,6 +46,7 @@ public class ControlTablaMultiplicar {
 		menú=new VistaMenú("Tablas de multiplicar",Arrays.asList(OPCIONES_MENÚ_PRINCIPAL));
 		
 		do{
+			menú.mostrarTitulo1("Menú principal");
 			menú.mostrarOpciones();
 			opción=menú.pedirOpción();
 			
@@ -72,24 +73,27 @@ public class ControlTablaMultiplicar {
 		
 	}
 	
-	/**
-	 * Muestra por pantalla -envía a la salida estándar-
-	 * los productos correspondientes a la tabla activa.
-	 */
-	private void mostrarTabla(){
-		tabla.toListaPantalla();
-	}
-	
 	/** Cambia la tabla activa por otra elegida por el usuario. */
 	private void cambiarTabla(){
 		int n;
 		
 		n = 0;
 		
-		VistaGeneral.pedirNumero("Introduzca el número para cambiar la tabla: ");
-		
+		n = VistaGeneral.pedirNumero("Introduzca el número para cambiar la tabla: ");
 		tabla=new TablaMultiplicar(n);
+		System.out.printf("Estamos en la tabla del: %d%n", n);
+		
 		tabla.generarTabla();
+	}
+
+	/**
+	 * Muestra por pantalla -envía a la salida estándar-
+	 * los productos correspondientes a la tabla activa.
+	 */
+	private void mostrarTabla(){
+		x=tabla.toListaPantalla();
+		VistaGeneral.mostrarLista(x);
+		
 	}
 
 	/**
@@ -97,7 +101,13 @@ public class ControlTablaMultiplicar {
 	 * los productos correspondientes a la tabla activa.
 	 */
 	private void exportarTabla(){
-		tabla.toListaExportacion();
+		List<String> datosArchivo;
+		ExportacionArchivo archivo;
+		
+		datosArchivo = tabla.toListaExportacion();
+		archivo = new ExportacionArchivo(FORMATO_RUTA_ARCHIVO_EXPORTACIÓN);
+		
+		archivo.guardar(datosArchivo);
 	}
 	
 	/**

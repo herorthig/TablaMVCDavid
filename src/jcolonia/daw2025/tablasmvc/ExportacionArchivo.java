@@ -40,7 +40,7 @@ public class ExportacionArchivo {
 			PrintWriter out = new PrintWriter(Files.newBufferedWriter(archivo));
 		
 			for (String opcion : contenidos) {
-				out.println(opcion);
+				out.print(opcion);
 			}
 			
 			out.close();

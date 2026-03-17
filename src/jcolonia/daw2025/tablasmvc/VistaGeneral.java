@@ -59,6 +59,7 @@ public class VistaGeneral {
 		for(int i=0;i<texto.length();i++) {
 			System.out.print("-");
 		}
+		System.out.println();
 	}
 	
 	/**
@@ -86,7 +87,7 @@ public class VistaGeneral {
 		int n;
 		String entrada;
 		
-		mostrarTexto(texto);
+		System.out.print(texto);
 		
 		entrada = getScEntrada();
 		n = Integer.parseInt(entrada);
@@ -121,7 +122,7 @@ public class VistaGeneral {
 		salida = false;
 		entrada = "";
 		
-		mostrarTexto(texto);
+		System.out.print(texto);
 		entrada = getScEntrada();
 		
 		switch(entrada.toUpperCase()){
@@ -162,8 +163,6 @@ public class VistaGeneral {
 		}
 		
 		entrada = ScEntrada.nextLine();
-		
-		ScEntrada.close();
 		
 		return entrada;
 	}

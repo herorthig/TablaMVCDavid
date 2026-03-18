@@ -86,11 +86,21 @@ public class VistaGeneral {
 	public static int pedirNumero(String texto) {
 		int n;
 		String entrada;
+		boolean salir;
 		
-		System.out.print(texto);
-		
-		entrada = getScEntrada();
-		n = Integer.parseInt(entrada);
+		salir = false;
+		n = 0;
+		do {
+			try {
+				System.out.print(texto);
+				
+				entrada = getScEntrada();
+				n = Integer.parseInt(entrada);
+				salir = true;
+			} catch(NumberFormatException e) {
+				mostrarAviso("Porfavor introduzca un número entero");
+            }
+		} while (!salir);
 		
 		return n;
 	}
@@ -145,9 +155,14 @@ public class VistaGeneral {
 	 * @param lista de opciones.
 	 */
 	public static void mostrarLista(List<String> lista) {
-		for (String opcion : lista) {
-            mostrarTexto(opcion);
-        }
+		Boolean salir;
+		
+		System.out.println("Tabla de multiplicar");
+		
+		for(int i=0;i<lista.size();i++) {
+			System.out.print(lista.get(i));
+		}
+		salir = VistaGeneral.pedirConfirmacion("¿Desea continuar? (S/N)");
 	}
 	
 	/**

@@ -91,9 +91,10 @@ public class ControlTablaMultiplicar {
 	 * los productos correspondientes a la tabla activa.
 	 */
 	private void mostrarTabla(){
-		x=tabla.toListaPantalla();
-		VistaGeneral.mostrarLista(x);
+		List<String> datosArchivo;
 		
+		datosArchivo = tabla.toListaPantalla();
+		VistaGeneral.mostrarLista(datosArchivo);
 	}
 
 	/**

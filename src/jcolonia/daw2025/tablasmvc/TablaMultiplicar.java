@@ -61,16 +61,9 @@ public class TablaMultiplicar {
 	 * @return listaTextos con la tabla generada.
 	 */
 	public List<String> toListaPantalla() {
-		System.out.printf("Tabla del %d %n", número);
-		
 		if(listaTextos == null) {
 			generarTabla();
 		}
-		
-		for (int i=0;i<listaTextos.size();i++) {
-			System.out.print(listaTextos.get(i));
-		}
-		VistaGeneral.pedirConfirmacion("¿Desea continuar? (S/N)");
 		
 		return listaTextos;
 	}
